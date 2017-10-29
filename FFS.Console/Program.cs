@@ -11,8 +11,7 @@ namespace FFS.Console
     {
         static void Main()
         {
-            string path = @"C:\Temp\lol.xlsx";
-            FFSDao.ReadFile(path);
+            new WebDataRetriever().RetrieveData(@"C:\temp\");
         }
     }
 }
