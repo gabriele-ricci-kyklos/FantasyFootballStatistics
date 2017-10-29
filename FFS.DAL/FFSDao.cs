@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace FFS.DAL
 {
-    public static class FFSDao
+    public class FFSDao
     {
         private static IDictionary<string, string> columnsMapping =
             new Dictionary<string, string>
@@ -64,7 +64,7 @@ namespace FFS.DAL
             }
         }
 
-        public static void ReadFile(string filePath)
+        public void ReadFile(string filePath)
         {
             filePath.AssertNotNull("filePath");
 
@@ -88,13 +88,13 @@ namespace FFS.DAL
             }
         }
 
-        private static string ParseSheetName(string sheetName)
+        private string ParseSheetName(string sheetName)
         {
             sheetName.AssertNotNull("sheetName");
             return sheetName.Replace("$", string.Empty);
         }
 
-        private static string[] ParseSheetNameList(string[] sheetNameList)
+        private string[] ParseSheetNameList(string[] sheetNameList)
         {
             sheetNameList.AssertNotNull("sheetNameList");
 

@@ -76,6 +76,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FFS.BE\FFS.BE.csproj">
+      <Project>{2fcccbf9-7981-48a0-886d-a67bf0e33b92}</Project>
+      <Name>FFS.BE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FFS.Business\FFS.Business.csproj">
+      <Project>{d9db67da-e08c-4a04-b4df-b980f6f38611}</Project>
+      <Name>FFS.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FFS.DAL\FFS.DAL.csproj">
       <Project>{1DEF216A-AFF8-4F0E-87BC-215A62337090}</Project>
       <Name>FFS.DAL</Name>

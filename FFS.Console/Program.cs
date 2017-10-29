@@ -11,7 +11,7 @@ namespace FFS.Console
     {
         static void Main()
         {
-            new WebDataRetriever().RetrieveData(@"C:\temp\");
+            var result = new WebDataRetriever().RetrieveData(@"C:\temp\");
         }
     }
 }

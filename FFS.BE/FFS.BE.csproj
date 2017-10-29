@@ -46,6 +46,7 @@
     <Compile Include="Data\DataSheet.cs" />
     <Compile Include="Data\DataSheetRow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Support\DAL\WebDataResult.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

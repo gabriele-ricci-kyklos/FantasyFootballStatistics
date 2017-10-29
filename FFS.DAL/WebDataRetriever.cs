@@ -1,4 +1,5 @@
-﻿using GenericCore.Support;
+﻿using FFS.BE.Support.DAL;
+using GenericCore.Support;
 using GenericCore.Support.Web;
 using HtmlAgilityPack;
 using System;
@@ -16,14 +17,15 @@ namespace FFS.DAL
         const string FantaGazzettaUrl = "https://www.fantagazzetta.com/statistiche-serie-a";
         const string htmlMatchToken = "$('#toexcel').unbind('click')";
 
-        public bool RetrieveData(string localFolder)
+        public WebDataResult RetrieveData(string localFolder)
         {
-            localFolder = GetLocalPath(localFolder);
+            string localPath = GetLocalPath(localFolder);
 
             HtmlNode node = GetNodeContainingUrl();
             string url = GetUrlFromNode(node);
             
-            return WebPageDataRetriever.DownloadFile(url, localFolder);
+            bool fileDownloaded = WebPageDataRetriever.DownloadFile(url, localPath);
+            return new WebDataResult(url, localPath, fileDownloaded);
         }
 
         private string GetLocalPath(string localFolder)
