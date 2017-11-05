@@ -1,4 +1,5 @@
-﻿using FFS.BE.Data;
+﻿using ExcelDataReader;
+using FFS.BE.Data;
 using GenericCore.Support;
 using GenericCore.Support.Excel;
 using System;
@@ -13,7 +14,7 @@ namespace FFS.DAL
 {
     public class FFSDao
     {
-        private static IDictionary<string, string> columnsMapping =
+        private readonly IDictionary<string, string> columnsMapping =
             new Dictionary<string, string>
             {
                 { "R", "Role" },
@@ -35,10 +36,10 @@ namespace FFS.DAL
                 { "Au", "OwnGoals" },
             };
 
-        public static string FilePath { get; set; }
+        public string FilePath { get; set; }
 
-        private static DataSet _data = null;
-        public static DataSet Data
+        private DataSet _data = null;
+        public DataSet Data
         {
             get
             {
@@ -46,8 +47,8 @@ namespace FFS.DAL
             }
         }
 
-        private static string[] _sheets = null;
-        public static string[] Sheets
+        private string[] _sheets = null;
+        public string[] Sheets
         {
             get
             {
@@ -55,8 +56,8 @@ namespace FFS.DAL
             }
         }
 
-        private static IList<DataSheet> _dataSheetList = null;
-        public static IList<DataSheet> DataSheetList
+        private IList<DataSheet> _dataSheetList = null;
+        public IList<DataSheet> DataSheetList
         {
             get
             {
@@ -64,21 +65,39 @@ namespace FFS.DAL
             }
         }
 
-        public void ReadFile(string filePath)
+        public FFSDao(string filePath)
         {
             filePath.AssertNotNull("filePath");
 
+            FilePath = filePath;
+            _dataSheetList = new List<DataSheet>();
+
+            ReadFile(filePath);
+        }
+
+        private void ReadFile(string filePath)
+        {
             if (!File.Exists(filePath))
             {
                 throw new FileNotFoundException($"File {filePath} not found");
             }
 
-            FilePath = filePath;
-
-            OleDbExcelReader reader = new OleDbExcelReader(ExcelOleDbConnectionString.ToExcelV12(filePath));
-            _sheets = ParseSheetNameList(reader.ExtractSheetNames());
-            _data = reader.ReadData(_sheets);
-            _dataSheetList = new List<DataSheet>();
+            using (FileStream stream = File.Open(FilePath, FileMode.Open, FileAccess.Read))
+            {
+                using (IExcelDataReader reader = ExcelReaderFactory.CreateReader(stream))
+                {
+                    _data = reader.AsDataSet(new ExcelDataSetConfiguration
+                    {
+                        UseColumnDataType = true,
+                        ConfigureDataTable = (tableReader) => new ExcelDataTableConfiguration
+                        {
+                            EmptyColumnNamePrefix = "Column",
+                            UseHeaderRow = true,
+                            ReadHeaderRow = (rowReader) => { rowReader.Read(); }
+                        }
+                    });
+                }
+            }
 
             foreach (DataTable table in _data.Tables)
             {

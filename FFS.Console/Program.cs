@@ -1,4 +1,5 @@
-﻿using FFS.DAL;
+﻿using FFS.BE.Support.DAL;
+using FFS.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,8 @@ namespace FFS.Console
     {
         static void Main()
         {
-            var result = new WebDataRetriever().RetrieveData(@"C:\temp\");
+            WebDataResult result = new WebDataRetriever().RetrieveData(@"C:\temp\");
+            FFSDao dao = new FFSDao(result.LocalPath);
         }
     }
 }

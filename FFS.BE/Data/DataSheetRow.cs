@@ -13,8 +13,8 @@ namespace FFS.BE.Data
         public string Name { get; set; } //Nome
         public string Team { get; set; } //Squadra
         public int GamesPlayed { get; set; } //Pg
-        public int Ranking { get; set; } //Mv
-        public int FantasyRanking { get; set; } //Mf
+        public decimal Ranking { get; set; } //Mv
+        public decimal FantasyRanking { get; set; } //Mf
         public int ScoredGoals { get; set; } //Gf
         public int ConcededGoals { get; set; } //Gs
         public int SavedPenalties { get; set; } //Rp
