@@ -1,4 +1,4 @@
-﻿using FFS.BE.Support.DAL;
+﻿using FFS.DAL;
 using GenericCore.Support;
 using GenericCore.Support.Web;
 using HtmlAgilityPack;
@@ -10,25 +10,21 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace FFS.DAL
+namespace FFS.DAL.FantaGazzetta
 {
-    public class WebDataRetriever
+    public class FantaGazzettaDataRetriever : AbstractDataRetriever
     {
         const string FantaGazzettaUrl = "https://www.fantagazzetta.com/statistiche-serie-a";
         const string htmlMatchToken = "$('#toexcel').unbind('click')";
 
-        public WebDataResult RetrieveData(string localFolder)
+        protected override string GetUrlToDownloadFile()
         {
-            string localPath = GetLocalPath(localFolder);
-
             HtmlNode node = GetNodeContainingUrl();
             string url = GetUrlFromNode(node);
-            
-            bool fileDownloaded = WebPageDataRetriever.DownloadFile(url, localPath);
-            return new WebDataResult(url, localPath, fileDownloaded);
+            return url;
         }
 
-        private string GetLocalPath(string localFolder)
+        protected override string GetLocalPath(string localFolder)
         {
             localFolder =
                 localFolder.IsNullOrEmpty()

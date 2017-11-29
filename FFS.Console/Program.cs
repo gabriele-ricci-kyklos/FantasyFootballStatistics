@@ -1,5 +1,6 @@
-﻿using FFS.BE.Support.DAL;
+﻿using FFS.BE.Data;
 using FFS.DAL;
+using FFS.DAL.FantaGazzetta;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace FFS.Console
     {
         static void Main()
         {
-            WebDataResult result = new WebDataRetriever().RetrieveData(@"C:\temp\");
+            DataResult result = new FantaGazzettaDataRetriever().RetrieveData(@"C:\temp\");
             FFSDao dao = new FFSDao(result.LocalPath);
         }
     }

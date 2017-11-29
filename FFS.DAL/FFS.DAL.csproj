@@ -41,10 +41,6 @@
     <Reference Include="GenericCore">
       <HintPath>..\..\GenericCore\Distribution\GenericCore.dll</HintPath>
     </Reference>
-    <Reference Include="HtmlAgilityPack, Version=1.6.2.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
-      <HintPath>..\packages\HtmlAgilityPack.1.6.2\lib\Net45\HtmlAgilityPack.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.IO.Compression" />
@@ -56,9 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbstractDataRetriever.cs" />
     <Compile Include="FFSDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebDataRetriever.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FFS.BE\FFS.BE.csproj">

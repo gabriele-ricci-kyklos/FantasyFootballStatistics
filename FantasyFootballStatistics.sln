@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFS.DAL", "FFS.DAL\FFS.DAL.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFS.BE", "FFS.BE\FFS.BE.csproj", "{2FCCCBF9-7981-48A0-886D-A67BF0E33B92}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFS.DAL.FantaGazzetta", "FFS.DAL.FantaGazzetta\FFS.DAL.FantaGazzetta.csproj", "{4556A2F1-DDDD-4C2F-BD4C-A1E734EDD935}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{2FCCCBF9-7981-48A0-886D-A67BF0E33B92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FCCCBF9-7981-48A0-886D-A67BF0E33B92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FCCCBF9-7981-48A0-886D-A67BF0E33B92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4556A2F1-DDDD-4C2F-BD4C-A1E734EDD935}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4556A2F1-DDDD-4C2F-BD4C-A1E734EDD935}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4556A2F1-DDDD-4C2F-BD4C-A1E734EDD935}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4556A2F1-DDDD-4C2F-BD4C-A1E734EDD935}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
