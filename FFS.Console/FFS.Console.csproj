@@ -41,7 +41,12 @@
       <HintPath>..\packages\ExcelDataReader.DataSet.3.2.0\lib\net45\ExcelDataReader.DataSet.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="GenericCore, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\GenericCore\Distribution\GenericCore.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Xml.Linq" />
@@ -103,6 +108,9 @@
       <Project>{1DEF216A-AFF8-4F0E-87BC-215A62337090}</Project>
       <Name>FFS.DAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Config\ffs.dependencies.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
