@@ -14,7 +14,7 @@ namespace FFS.DAL
         {
             string localPath = GetLocalPath(localFolder);
             string url = GetUrlToDownloadFile();
-            bool fileDownloaded = WebPageDataRetriever.DownloadFile(url, localPath);
+            bool fileDownloaded = WebDataRetriever.TryDownloadFile(url, localPath);
             return new DataResult(localPath, fileDownloaded);
         }
 

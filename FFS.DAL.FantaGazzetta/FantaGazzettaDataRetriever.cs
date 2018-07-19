@@ -43,7 +43,7 @@ namespace FFS.DAL.FantaGazzetta
 
         private HtmlNode GetNodeContainingUrl()
         {
-            string html = WebPageDataRetriever.RetrievePage(FantaGazzettaUrl);
+            string html = WebDataRetriever.RetrievePage(FantaGazzettaUrl);
             HtmlDocument doc = new HtmlDocument();
             doc.LoadHtml(html);
 
